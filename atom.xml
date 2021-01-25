@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://AliceLi.github.io</id>
     <title>Gridea</title>
-    <updated>2021-01-25T11:04:53.985Z</updated>
+    <updated>2021-01-25T11:21:22.263Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://AliceLi.github.io"/>
     <link rel="self" href="https://AliceLi.github.io/atom.xml"/>
@@ -10,6 +10,15 @@
     <logo>https://AliceLi.github.io/images/avatar.png</logo>
     <icon>https://AliceLi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[Hi]]></title>
+        <id>https://AliceLi.github.io/post/hi/</id>
+        <link href="https://AliceLi.github.io/post/hi/">
+        </link>
+        <updated>2021-01-25T11:21:06.000Z</updated>
+        <content type="html"><![CDATA[<p>hello.</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://AliceLi.github.io/post/hello-gridea/</id>
