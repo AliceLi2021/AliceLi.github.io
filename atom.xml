@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://AliceLi.github.io</id>
-    <title>Gridea</title>
-    <updated>2021-01-25T11:21:22.263Z</updated>
+    <title>AliceLi</title>
+    <updated>2021-01-25T11:35:30.953Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://AliceLi.github.io"/>
     <link rel="self" href="https://AliceLi.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
     <logo>https://AliceLi.github.io/images/avatar.png</logo>
     <icon>https://AliceLi.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2021, Gridea</rights>
+    <rights>All rights reserved 2021, AliceLi</rights>
     <entry>
         <title type="html"><![CDATA[Hi]]></title>
         <id>https://AliceLi.github.io/post/hi/</id>
