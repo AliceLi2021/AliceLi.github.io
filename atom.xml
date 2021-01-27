@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://aliceli2021.github.io</id>
     <title>AliceLi&apos;s blog</title>
-    <updated>2021-01-27T05:46:21.903Z</updated>
+    <updated>2021-01-27T10:55:36.213Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://aliceli2021.github.io"/>
     <link rel="self" href="https://aliceli2021.github.io/atom.xml"/>
@@ -10,35 +10,70 @@
     <icon>https://aliceli2021.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, AliceLi&apos;s blog</rights>
     <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://aliceli2021.github.io/post/hello-gridea/</id>
-        <link href="https://aliceli2021.github.io/post/hello-gridea/">
+        <title type="html"><![CDATA[KMP]]></title>
+        <id>https://aliceli2021.github.io/post/kmp/</id>
+        <link href="https://aliceli2021.github.io/post/kmp/">
         </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+        <updated>2021-01-27T06:21:55.000Z</updated>
+        <content type="html"><![CDATA[<p>第一次写blog qwq</p>
+<h2 id="kmp模版">KMP模版</h2>
+<pre><code class="language-cpp">#include&lt;cstdio&gt;
+#include&lt;iostream&gt;
+#include&lt;algorithm&gt;
+#include&lt;cmath&gt;
+#include&lt;cstring&gt;
+
+using namespace std;
+
+const int NR=1e6+5;
+
+char s1[NR],s2[NR];
+int n,m;
+int nxt[NR];
+
+int main(){
+    scanf(&quot;%s&quot;,s1+1);
+    scanf(&quot;%s&quot;,s2+1);
+    n=strlen(s2+1);
+    m=strlen(s1+1);
+    for(int i=2,j=0;i&lt;=n;i++){
+        while(j&gt;0&amp;&amp;s2[i]!=s2[j+1]) j=nxt[j];
+        if(s2[i]==s2[j+1]) j++;
+        nxt[i]=j;
+    }
+    for(int i=1,j=0;i&lt;=m;i++){
+        while(j&gt;0&amp;&amp;s1[i]!=s2[j+1]) j=nxt[j];
+        if(s1[i]==s2[j+1]) j++;
+        if(j==n) printf(&quot;%d\n&quot;,i-n+1);
+    }
+    for(int i=1;i&lt;=n;i++) printf(&quot;%d &quot;,nxt[i]);
+    return 0;
+}
+</code></pre>
+<h2 id="例题">例题</h2>
+<h3 id="p5829-模板失配树">P5829 【模板】失配树</h3>
+<p>失配树：跑完KMP后，将<em>nxt</em><sub><em>i</em></sub>作为<em>i</em>的父亲建成的树<br>
+性质：每个点<em>i</em>的所有祖先都是<em>s</em>[1...<em>i</em>]的border<br>
+这题在失配树上LCA即可<br>
+由于一个字符串的border不能是自己本身，所以答案为LCA(<em>fa</em><sub><em>p</em></sub>,<em>fa</em><sub><em>q</em></sub>)</p>
+<h3 id="p2375-noi2014-动物园">P2375 [NOI2014] 动物园</h3>
+<p>在<em>nxt</em>数组上再维护一个<em>f</em>数组，与题目中的<em>num</em>类似（<em>f</em>能重叠）<br>
+核心代码：</p>
+<pre><code class="language-cpp">ans=1;  nxt[1]=0;  f[1]=1;  f[0]=0;
+for(int i=2,j=0;i&lt;=n;i++){
+    while(j&gt;0&amp;&amp;s[i]!=s[j+1]) j=nxt[j];
+    if(s[i]==s[j+1]) j++;
+    nxt[i]=j;
+    f[i]=f[j]+1;
+}
+for(int i=2,j=0;i&lt;=n;i++){
+    while(j&gt;0&amp;&amp;s[i]!=s[j+1]) j=nxt[j];
+    if(s[i]==s[j+1]) j++;
+    while(j&gt;i/2) j=nxt[j];
+    ans*=(long long)(f[j]+1);
+    ans%=1000000007;
+}
+</code></pre>
 ]]></content>
     </entry>
 </feed>
