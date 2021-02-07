@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://aliceli2021.github.io</id>
     <title>AliceLi&apos;s blog</title>
-    <updated>2021-02-07T11:01:26.698Z</updated>
+    <updated>2021-02-07T11:02:58.907Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://aliceli2021.github.io"/>
     <link rel="self" href="https://aliceli2021.github.io/atom.xml"/>
@@ -27,7 +27,7 @@
 <s>老师（WC2020回顾视频）：假设有 l 到 r，这是 l，这是 r。这些边我不加。这些边我不加！暴力怎么做？暴力是不是，加边、加边、加边，然后，并查集查询。</s></p>
 <h2 id="day-3">Day 3</h2>
 <p>上午：（树）速度飞快，基本没听懂。<br>
-下午：（字符串）普及-难度，就去肝whk了。</p>
+下午：（数据结构）普及-难度，就去肝whk了。</p>
 <h2 id="day-4">Day 4</h2>
 <p>没有第二课堂的课了，就写了写寒假作业。<br>
 晚上发现Xcode文件输入输出有点问题，临时学习用VScode。</p>
