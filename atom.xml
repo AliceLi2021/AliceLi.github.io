@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://aliceli2021.github.io</id>
     <title>AliceLi&apos;s blog</title>
-    <updated>2021-02-08T07:14:25.981Z</updated>
+    <updated>2021-02-26T06:26:16.668Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://aliceli2021.github.io"/>
     <link rel="self" href="https://aliceli2021.github.io/atom.xml"/>
@@ -110,6 +110,62 @@ for(int i=2,j=0;i&lt;=n;i++){
     while(j&gt;i/2) j=nxt[j];
     ans*=(long long)(f[j]+1);
     ans%=1000000007;
+}
+</code></pre>
+<h2 id="扩展kmp">扩展KMP</h2>
+<h3 id="p5410-模板扩展-kmpz-函数">P5410 【模板】扩展 KMP（Z 函数）</h3>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;algorithm&gt;
+#include&lt;cmath&gt;
+#include&lt;cstring&gt;
+
+using namespace std;
+
+const int NR=2e7+5;
+
+int n,m;
+char s[NR],t[NR];
+int z[NR],ext[NR];
+
+int main(){
+    scanf(&quot;%s&quot;,s+1);
+    scanf(&quot;%s&quot;,t+1);
+    n=strlen(s+1);
+    m=strlen(t+1);
+    z[1]=m;
+    int p=2,now=1;
+    while(now+1&lt;=m&amp;&amp;t[now]==t[now+1]) now++;
+    z[2]=now-1;
+    for(int i=3;i&lt;=m;i++){
+        if(i+z[i-p+1]&lt;p+z[p]) z[i]=z[i-p+1];
+        else{
+            now=max(z[p]+p-i,1);
+            while(now+i-1&lt;=m&amp;&amp;t[now]==t[now+i-1]) now++;
+            z[i]=now-1;
+            p=i;
+        }
+    }
+    p=1;
+    now=1;
+    while(now&lt;=m&amp;&amp;now&lt;=n&amp;&amp;t[now]==s[now]) now++;
+    ext[1]=now-1;
+    for(int i=2;i&lt;=n;i++){
+        if(i+z[i-p+1]&lt;p+ext[p]) ext[i]=z[i-p+1];
+        else{
+            now=max(ext[p]+p-i,1);
+            while(now&lt;=m&amp;&amp;now+i-1&lt;=n&amp;&amp;t[now]==s[now+i-1]) now++;
+            ext[i]=now-1;
+            p=i;
+        }
+    }
+    long long ans=0;
+    for(int i=1;i&lt;=m;i++) ans^=(long long)i*(long long)(z[i]+1);
+    printf(&quot;%lld\n&quot;,ans);
+    ans=0;
+    for(int i=1;i&lt;=n;i++) ans^=(long long)i*(long long)(ext[i]+1);
+    printf(&quot;%lld\n&quot;,ans);
+    return 0;
 }
 </code></pre>
 ]]></content>
